@@ -9,11 +9,8 @@ namespace TicTacToe.Helper.FactoryMethod
     {
         public int Width { get; set; }
         public int Height { get; set; }
-        public ShapeType ShapeType { get; set; }
-        public virtual Shape CreateShape(int width, int height)
+        public virtual Shape CreateShape()
         {
-            Width = width;
-            Height = height;
             return this;
         }
     }
