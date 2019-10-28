@@ -6,15 +6,21 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TicTacToe.Helper.AbstractFactory;
 using TicTacToe.Helper.Builder;
+using TicTacToe.Repositories;
 
 namespace TicTacToe.Controllers
 {
     public class GameController : Controller
     {
+        private readonly Repo repo;
+        public GameController(Repo repo)
+        {
+            this.repo = repo;    
+        }
         public IActionResult Small()
         {
-            string method = MethodBase.GetCurrentMethod().Name.ToLower();
-            return returnView(method);
+            ViewBag.Results = repo.GetResults();
+            return returnView(MethodBase.GetCurrentMethod().Name.ToLower());
         }
 
         private IActionResult returnView(string method)
@@ -26,8 +32,7 @@ namespace TicTacToe.Controllers
 
         public IActionResult Medium()
         {
-            string method = MethodBase.GetCurrentMethod().Name.ToLower();
-            return returnView(method);
+            return returnView(MethodBase.GetCurrentMethod().Name.ToLower());
         }
     }
 }

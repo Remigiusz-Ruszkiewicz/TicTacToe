@@ -66,4 +66,9 @@ table {
     }
 td {
     border: solid 2px black;
+    max-width: 150px;
+}
+
+canvas {
+    max-height: 150px;
 }
