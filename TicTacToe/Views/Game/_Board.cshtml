@@ -9,10 +9,17 @@
                 {
                     @foreach (var cell in row.Cells)
                     {
-                        <td id="c_@cell.Id"></td>
+                        <td onclick='GetCircle("r_@(row.Id)c_@cell.Id")'>
+                            <canvas id="r_@(row.Id)c_@cell.Id"></canvas>
+                        </td>
                     }
                 }
             </tr>
         }
     }
 </table>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        GetCircle('r_0c_0');
+    });
+</script>

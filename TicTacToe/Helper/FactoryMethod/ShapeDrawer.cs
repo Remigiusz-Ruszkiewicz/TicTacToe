@@ -22,7 +22,8 @@ namespace TicTacToe.Helper.FactoryMethod
                 default:
                     throw new Exception("Bad request");
             }
-            return shape.CreateShape();
+            return shape.CreateShape(100,100);
+
         }
     }
 }

@@ -10,11 +10,12 @@ namespace TicTacToe.Models
     {
         public Line Line { get; set; }
         public string Color { get; set; }
-        public override Shape CreateShape()
+        public override Shape CreateShape(int width, int height)
         {
             Line = new Line(0,0);
             Color = "grey";
-            return base.CreateShape();  
+            ShapeType = Helper.ShapeType.Circle;
+            return base.CreateShape(width,height);  
         }
     }
 }

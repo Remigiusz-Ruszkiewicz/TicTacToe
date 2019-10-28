@@ -1,4 +1,26 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
+﻿let isCircle = false
+function GetCircle(id) {
+    if (!isCircle) {
+        var c = document.getElementById(id);
+        var ctx = c.getContext("2d");
+        ctx.beginPath();
+        ctx.arc(70, 75, 70, 0, 2 * Math.PI);
+        ctx.stroke();
+        isCircle = true;
+    }
+    else {
+        var c = document.getElementById(id);
+        var ctx = c.getContext("2d");
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(c.width/2, c.height);
+        ctx.stroke();
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(c.width/2, 0);
+        ctx.lineTo(0, c.height);
+        ctx.stroke();
+        isCircle = false;
+    }
+}
